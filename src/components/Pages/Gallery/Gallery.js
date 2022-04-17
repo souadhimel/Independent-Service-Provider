@@ -22,7 +22,7 @@ const Gallery = () => {
           <div className="box">
             <img src="images/g-2.jpg" alt="" />
             <div className="content">
-              <h3>Boat</h3>
+              <h3>boat</h3>
               <p>Sleepy blue ocean by boat..............</p>
               <Link to="#" className="btn">
                 see more
@@ -32,7 +32,7 @@ const Gallery = () => {
           <div className="box">
             <img src="images/g-3.jpg" alt="" />
             <div className="content">
-              <h3>Monuments</h3>
+              <h3>monuments</h3>
               <p>Monuments are calling........</p>
               <Link to="#" className="btn">
                 see more
@@ -42,7 +42,7 @@ const Gallery = () => {
           <div className="box">
             <img src="images/g-4.jpg" alt="" />
             <div className="content">
-              <h3>Roads in forest</h3>
+              <h3>roads in forest</h3>
               <p>Forests are calling......</p>
               <Link to="#" className="btn">
                 see more

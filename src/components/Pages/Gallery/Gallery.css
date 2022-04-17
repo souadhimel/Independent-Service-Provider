@@ -37,8 +37,8 @@
   }
   
   .gallery .box-container .box .content h3 {
-    font-size: 2.5rem;
-    color: var(--orange);
+    font-size: 20px;
+    color: orange;
   }
   
   .gallery .box-container .box .content p {
@@ -48,7 +48,7 @@
   }
   .btn {
     display: inline-block;
-    margin-top: 30px;
+    /* margin-top: 30px; */
     background: rgb(152, 167, 131);
     color: white;
     padding: 0 10px;
