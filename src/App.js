@@ -10,7 +10,7 @@ import Login from './components/Pages/Login/Login';
 import Register from './components/Pages/Register/Register';
 import CheckOut from './components/Pages/CheckOut/CheckOut';
 import RequireAuth from './Firebase/RequireAuth';
-
+import Services from './components/Pages/Services/Services';
 
 function App() {
   return (
@@ -20,6 +20,7 @@ function App() {
      <Route path="/"element={<Home></Home>}></Route>
      <Route path="/home"element={<Home></Home>}></Route>
      <Route path="/blogs" element={<Blogs></Blogs>}></Route>
+     <Route path="/services" element={<Services></Services>}></Route>
      <Route path="/login" element={<Login></Login>}></Route>
      <Route path="/register" element={<Register></Register>}></Route>
      <Route path="/checkOut" element={
