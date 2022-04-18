@@ -3,9 +3,13 @@ import "./Login.css";
 import { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FcGoogle } from "react-icons/fc";
-import {useAuthState , useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import {useAuthState , useSendPasswordResetEmail, useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import SignOut from '../SignOut/SignOut';
 import auth from '../../../Firebase/firebase.init';
+ import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+
 
 
 const Login = () => {
@@ -26,14 +30,29 @@ const Login = () => {
     const handlePasswordBlur=(e) => {
         setPassword(e.target.value)
     }
+    const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
 
     if (user) {
         navigate(from,{replace: true})
     }
-
+ if (error) {
+    error = <p className='text-danger'>Error: {error?.message}</p>
+    }
     const handleUserSignIn=(e) => {
         e.preventDefault()
         signInWithEmailAndPassword(email, password)
+    }
+
+    // Password reset
+    const resetPassword = async () => {
+        const email = setEmail.current.value;
+        if (email) {
+            await sendPasswordResetEmail(email);
+            toast('Sent email');
+        }
+        else{
+            toast('please enter your email address');
+        }
     }
 // google sign in
     const [signInWithGoogle] = useSignInWithGoogle(auth);
@@ -60,7 +79,11 @@ const Login = () => {
                 </div>
                 </form>
                 <div className="form_text">
-                <p>New to Tour De Vacation? <Link className="form_link" to="/register">Create a new account</Link></p></div>
+                <p>New to Tour De Vacation? <Link className="form_link" to="/register">Create a new account</Link></p>
+                <p>Forget Password? <button className=' text-primary pe-auto text-decoration-none' onClick={resetPassword}>Reset Password</button> </p>
+                
+                </div>
+
                 <div className="divider">
             <div className="divider_line"></div><p>or</p>
             <div className="divider_line"></div>
@@ -75,6 +98,7 @@ const Login = () => {
                 </div>
                 
             </div>
+            <ToastContainer />
         </div>
     );
 };
