@@ -1,3 +1,7 @@
 .nav_link Link{
     text-decoration: none
 }
+.signOut{
+    background-color: yellow;
+    color: black
+}

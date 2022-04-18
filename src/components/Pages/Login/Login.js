@@ -14,8 +14,8 @@ const Login = () => {
     const [password,setPassword]=useState(" ")
     const[error,setError]=useState(" ")
     const navigate = useNavigate()
-    // const location=useLocation()
-    // const  from = location.state?.from?.pathname || "/";
+    const location=useLocation()
+    const  from = location.state?.from?.pathname || "/";
    
 // log in with email and password
     const [signInWithEmailAndPassword] = useSignInWithEmailAndPassword(auth);
@@ -28,7 +28,7 @@ const Login = () => {
     }
 
     if (user) {
-        navigate('/home')
+        navigate(from,{replace: true})
     }
 
     const handleUserSignIn=(e) => {

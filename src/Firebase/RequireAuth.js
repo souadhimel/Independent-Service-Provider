@@ -5,15 +5,12 @@ import auth from './firebase.init';
 
 const RequireAuth = ({children}) => {
     const [user]=useAuthState(auth)
+    console.log('inside req auth', user);
     const location=useLocation();
     if (!user) {
-        return<Navigate to="/login" state={{from: location} }replace></Navigate>
+        return<Navigate to="/login" state={{from: location}} replace/>
     }
-    return (
-        <div>
-            
-        </div>
-    );
+    return children;
 };
 
 export default RequireAuth;
