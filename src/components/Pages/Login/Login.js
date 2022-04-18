@@ -35,9 +35,7 @@ const Login = () => {
     if (user) {
         navigate(from,{replace: true})
     }
- if (error) {
-    error = <p className='text-danger'>Error: {error?.message}</p>
-    }
+ 
     const handleUserSignIn=(e) => {
         e.preventDefault()
         signInWithEmailAndPassword(email, password)
